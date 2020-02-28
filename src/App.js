@@ -10,6 +10,11 @@ export default function App() {
   return (
     <main>
       <Header />
+
+      <Route path="/CharacterList">
+        <CharacterList/>
+
+      </Route>
     </main>
   );
 }

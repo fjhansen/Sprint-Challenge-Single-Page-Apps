@@ -6,16 +6,23 @@ import axios from "axios";
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters] = useState([]);
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-    .get()
-    .then()
-    .catch(err => {console.error("E R R O R", err)})
+    axios.get('https://rickandmortyapi.com/api/character/')
+    .then(response => {
+      console.log("R E S U L T S", response.data.results);
+      const ppl = response.data.results.filter(person =>
+        person.name.toLowerCase().includes(search.toLowerCase())
+        );
+        setCharacters(ppl);
+    })
+    .catch(error => {console.error("E R R O R", error)})
 
 
-  }, []);
+  }, [search]);
 
   return (
     <section className="character-list">
