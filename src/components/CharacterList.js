@@ -11,6 +11,7 @@ export default function CharacterList() {
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+    // Initial link worked with FIREFOX but not Chrome. No CORS heroku needed.
     axios.get('https://rickandmortyapi.com/api/character/')
     .then(response => {
       console.log("R E S U L T S", response.data.results);
