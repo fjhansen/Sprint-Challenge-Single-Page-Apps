@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { InputGroup, Input } from "reactstrap";
 
 export default function SearchForm() {
  
   return (
     <section className="search-form">
-     // Add a search form here
+     <InputGroup>
+     <Input type="text"></Input> 
+     </InputGroup>
     </section>
   );
 }
