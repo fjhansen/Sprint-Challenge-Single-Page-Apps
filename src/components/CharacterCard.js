@@ -1,19 +1,34 @@
 import React from "react";
 import {Card, CardImg, CardText, CardBody, CardTitle} from "reactstrap";
+import styled from "styled-components"
 
-export default function CharacterCard() {
+const CardDiv = styled.div `
+    width: 30%;
+    display: flex;
+    color: green;
+    
+
+`;
+
+export default function CharacterCard(props) {
+  console.log("P R O P S",props)
   return (
  
-  
-   <Card>
-        <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+  <CardDiv>
+   <Card body inverse style={{backgroundColor:"grey"}} key={props.key}>   
+   
+   <CardImg src={props.image}></CardImg>
         <CardBody>
-          <CardTitle>Card title</CardTitle>
+          <CardTitle>{props.name}</CardTitle>
           
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+          <CardText>
+            <p>{props.species}<p>{props.sex}</p></p>
+
+            </CardText>
+          
           
         </CardBody>
       </Card>
-  
+  </CardDiv>
   )
 }
